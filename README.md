@@ -1,0 +1,2 @@
+# music_player
+Linux下基于Qt和Mplayer的音乐播放器
