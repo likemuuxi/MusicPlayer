@@ -1,11 +1,6 @@
 # 项目简介
 Linux 环境下基于 Mplayer 和 Qt 的音乐播放器
 
-![image|450](https://github.com/likemuuxi/music_player/assets/85612715/7b534a48-0700-45a4-bcfc-b914bbc8aee6)
-
-
-![image|450](https://github.com/likemuuxi/music_player/assets/85612715/2e7e1a9c-f17c-449e-8366-90cb35dd336e)
-
 # 实现功能
 - 音乐列表显隐
 - 音乐播放和歌词定位显示
@@ -21,3 +16,10 @@ Linux 环境下基于 Mplayer 和 Qt 的音乐播放器
 - 歌词与歌曲精准定位（get_time_pos）
 - 代码精简和优化
 - ...
+
+# 效果演示
+
+![image](https://github.com/likemuuxi/music_player/assets/85612715/7b534a48-0700-45a4-bcfc-b914bbc8aee6#w80)
+
+![image](https://github.com/likemuuxi/music_player/assets/85612715/2e7e1a9c-f17c-449e-8366-90cb35dd336e#w80)
+
