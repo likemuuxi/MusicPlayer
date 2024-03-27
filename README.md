@@ -20,10 +20,10 @@ Linux 环境下基于 Mplayer 和 Qt 的音乐播放器
 # 效果演示
 
 <p align="center">
-  <img src="https://github.com/likemuuxi/music_player/assets/85612715/7b534a48-0700-45a4-bcfc-b914bbc8aee6" height="400px" width="600px" />
+  <img src="https://github.com/likemuuxi/music_player/assets/85612715/7b534a48-0700-45a4-bcfc-b914bbc8aee6" height="640px" width="860px" />
 </p>
 <p align="center">
-  <img src="https://github.com/likemuuxi/music_player/assets/85612715/2e7e1a9c-f17c-449e-8366-90cb35dd336e" height="400px" width="600px" />
+  <img src="https://github.com/likemuuxi/music_player/assets/85612715/2e7e1a9c-f17c-449e-8366-90cb35dd336e" height="640px" width="860px" />
 </p>
 
 
