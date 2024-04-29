@@ -1,3 +1,15 @@
+/*
+fork创建两个子进程。
+第一个子进程中，通过 execlp() 执行了 mplayer 命令，播放音乐，并将音频数据通过管道发送到主进程。
+在第二个子进程中，创建了一个 Qt 应用程序对象，并显示了一个窗口界面。
+
+共享内存中保存两个子进程的编号，主进程中循环监视子进程的退出情况，任一子进程结束时，父进程结束其他子进程
+
+mplayer的输出写入到管道写端，管道读端作为参数传入主界面子进程
+
+*/
+
+
 #include "widget.h"
 #include <QApplication>
 #include <sys/wait.h>
@@ -71,16 +83,18 @@ int main(int argc, char *argv[])
             break;
         }
     }
+    // 第一个子进程 i = 0   
     if(i == 0)
     {
         addr->pid_1 = getpid();  //获取播放器子进程号
 
-        //重定向1
+        //重定向管道的写端
         dup2(pipe_fd[1], 1);
-
+        //mplayer的输出写入到管道写端
         execlp("mplayer", "mplayer", "-ac", "mad", "-slave", "-quiet", "-idle", "-input", "file=./myfifo", NULL); // execlp函数执行成功，后面都不会运行
         exit(0);  // 如果execlp失败，结束子进程
     }
+    // 第二个子进程 i = 1 
     if(i == 1)
     {
         QApplication a(argc, argv);
@@ -92,11 +106,12 @@ int main(int argc, char *argv[])
 
         return a.exec();
     }
+    //父进程 i = 2 
     if(i == 2)
     {
         while(1)
         {
-            int ret= waitpid(-1, NULL, WNOHANG);
+            int ret= waitpid(-1, NULL, WNOHANG); //等待多个子进程结束
             if (ret == 0) //如果返回值=0，说明当前进程中还有子进程存在，且没有结束的子进程
             {
                 continue;
@@ -115,7 +130,3 @@ int main(int argc, char *argv[])
         }
     }
 }
-
-
-
-
